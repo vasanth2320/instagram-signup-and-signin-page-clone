@@ -43,7 +43,7 @@ class SignUp extends React.Component {
     return (
       <div className='sign-up'>
         <img src={logo} alt="Instagram logo" />
-        <span className='subcontent'>Sign up to see photos and videos from your friends.</span>
+        <h2>Sign up to see photos and videos from your friends.</h2>
         <form className='sign-up-form' onSubmit={this.handleSubmit}>
           <FormInput
             type='email'
