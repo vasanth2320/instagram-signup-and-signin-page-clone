@@ -19,7 +19,7 @@ class App extends React.Component {
       <div>
         <Routes>
         <Route path="/signin" element={<SignInAndSignUpPage />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
     );
