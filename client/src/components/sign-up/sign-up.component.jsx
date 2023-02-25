@@ -4,6 +4,7 @@ import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
 import './sign-up.styles.scss';
+import logo from '../../instagram-logo.png';
 
 class SignUp extends React.Component {
   constructor() {
@@ -41,8 +42,8 @@ class SignUp extends React.Component {
     const { displayName, email, password, Username } = this.state;
     return (
       <div className='sign-up'>
-        <h2 className='title'>Instagram</h2>
-        <span>Sign up to see photos and videos from your friends.</span>
+        <img src={logo} alt="Instagram logo" />
+        <span className='subcontent'>Sign up to see photos and videos from your friends.</span>
         <form className='sign-up-form' onSubmit={this.handleSubmit}>
           <FormInput
             type='email'
