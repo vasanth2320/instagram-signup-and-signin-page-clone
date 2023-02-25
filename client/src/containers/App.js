@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <div>
         <Routes>
-        <Route path="/signin" element={<SignInAndSignUpPage />} />
+        <Route path="/accounts/*" element={<SignInAndSignUpPage />}/>
         <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
