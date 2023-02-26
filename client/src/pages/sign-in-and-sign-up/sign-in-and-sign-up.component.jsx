@@ -6,13 +6,14 @@ import SignIn from "../../components/sign-in/sign-in.component";
 import './sign-in-and-sign-up.styles.scss';
 
 
-const SignInAndSignUpPage = () => {
+const SignInAndSignUpPage = (page) => {
     return (
         <div className="sign-in-and-sign-up">
-            <Routes>
+            {/* <Routes>
                 <Route path="/accounts/signin" element={<SignIn />} />
-            </Routes>
+            </Routes> */}
             {/* <SignIn /> */}
+            {console.log(page)}
         </div>
     );
 };
