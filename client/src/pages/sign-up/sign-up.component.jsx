@@ -1,6 +1,8 @@
 import React from 'react';
 import './sign-up.styles.scss';
 
+import { httpSignUp } from '../../hooks/requests';
+
 class SignUp extends React.Component {
     constructor(props) {
         super(props);
@@ -18,9 +20,17 @@ class SignUp extends React.Component {
         this.setState({ [name]: value });
       };
 
-    handleSubmit = (event) => {
-        console.log(event)
-    }
+    handleSubmit = async (event) => {
+        event.preventDefault();
+
+        await httpSignUp(this.state);
+        
+        this.state = { emailAddress: '',
+                       fullName: '',
+                       username: '',
+                       password: ''
+                    };
+        }
 
   render() {
       return (
