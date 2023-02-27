@@ -4,12 +4,8 @@ import React from 'react';
 // import CustomButton from '../custom-button/custom-button.component';
 
 import './sign-in.styles.scss';
-// import logo from '../../instagram-logo.png';
 
 class SignIn extends React.Component {
-    // constructor() {
-    //     super();
-    // }
 
     render() {
         return (
@@ -41,7 +37,7 @@ class SignIn extends React.Component {
                     </form>
                 </div>
                 <div class="box">
-                    <p>Don't have an account? <a class="signup" href="http://localhost:3000/signup">Sign Up</a></p>
+                    <p>Don't have an account? <a class="signup" href="/signup">Sign Up</a></p>
                 </div>
         </div>
         )

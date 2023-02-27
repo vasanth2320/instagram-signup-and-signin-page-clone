@@ -1,7 +1,9 @@
 import React from 'react';
-import './App.css';
 import { Route, Routes } from "react-router-dom";
-import SignInAndSignUpPage from '../pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+
+import './App.css';
+import SignIn from '../pages/sign-in/sign-in.component';
+import SignUp from '../pages/sign-up/sign-up.component';
 
 const NotFound = () => (
   <div>
@@ -18,8 +20,9 @@ class App extends React.Component {
     return (
       <div>
         <Routes>
-        <Route path="/accounts/*" element={<SignInAndSignUpPage />}/>
-        <Route path="/*" element={<NotFound />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
     );
