@@ -55,7 +55,7 @@ class SignUp extends React.Component {
                           <input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="on" />
                           <label >Password</label>
                       </div>
-                      <button className="login-button" title="login" type="submit">Sign Up</button>
+                      <button className="login-button" title="signUp" type="submit">Sign Up</button>
                       <div className="separator">
                           <div className="line"></div>
                           <p>OR</p>

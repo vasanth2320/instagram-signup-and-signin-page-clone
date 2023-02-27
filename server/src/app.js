@@ -1,9 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
 
-const user = require('./user');
+const User = require('./user');
 const app = express();
+
+JWT_SECRET = 'OJVNIOERIOivijtri ewrioj)(*)$#8074584uf80ue87uoh*)**(&#$*)U';
 
 app.use(cors({
     origin: 'http://localhost:3000'
@@ -33,7 +36,7 @@ app.post('/signup', async (req, res) => {
 
     const password = await bcrypt.hash(plainTextPassword, 10);
     try {
-        const response = await user.create({
+        const response = await User.create({
             emailAddress,
             fullName,
             username,
@@ -48,6 +51,31 @@ app.post('/signup', async (req, res) => {
         throw error;
     }
     res.send(req.body);
+});
+
+app.post('/signin', async(req, res) => {
+    console.log(req.body);
+
+    const { username, password } = req.body;
+
+    const user = await User.findOne({username}).lean()
+    console.log(user);
+
+    if(!this.user) {
+        return res.json({ status: 'error', error: 'Invaild username/password'})
+    }
+
+    if(await bcrypt.compare(password, user.password)) {
+
+        const token = jwt.sign({ 
+                    id: user._id, 
+                    username: user.username 
+                }, JWT_SECRET)
+
+        return res.json({ status: 'ok', data: token})
+    }
+
+    res.json({ status: 'error', error: 'Invalid username/password' });
 });
 
 module.exports = app;

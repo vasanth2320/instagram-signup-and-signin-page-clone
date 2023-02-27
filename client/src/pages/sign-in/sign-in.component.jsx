@@ -1,38 +1,64 @@
 import React from 'react';
 import './sign-in.styles.scss';
 
+import { httpSignIn } from '../../hooks/requests';
+
 class SignIn extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { username: '',
+                       password: ''
+                    };
+    };
+
+    handleChange = event => {
+        const { name, value } = event.target;
+
+        this.setState({ [name]: value });
+      };
+
+    handleSubmit = async (event) => {
+        // event.preventDefault();
+        
+        await httpSignIn(this.state);
+
+        this.state = { username: '',
+                       password: ''
+                    };
+        }
+
     render() {
         return (
-            <div class="container">
-                <div class="box">
-                    <div class="heading"></div>
-                    <form class="login-form">
-                        <div class="field">
-                            <input id="username" type="name" placeholder="Phone number, username, or email" />
-                            <label for="username">Phone number, username, or email</label>
+            <div className="container">
+                <div className="box">
+                    <div className="heading"></div>
+                    <form className="login-form" onSubmit={this.handleSubmit}>
+                        <div className="field">
+                            <input id="username" type="name" placeholder="username, or email" name="username" value={this.state.username} onChange={this.handleChange}/>
+                            <label>Username, or email</label>
                         </div>
-                        <div class="field">
-                            <input id="password" type="password" placeholder="password" />
-                            <label for="password">Password</label>
+                        <div className="field">
+                            <input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="on"/>
+                            <label>Password</label>
                         </div>
-                        <button class="login-button" title="login">Log In</button>
-                        <div class="separator">
-                            <div class="line"></div>
+                        <button className="login-button" title="login" type="submit">Log In</button>
+                        <div className="separator">
+                            <div className="line"></div>
                             <p>OR</p>
-                            <div class="line"></div>
+                            <div className="line"></div>
                         </div>
-                        <div class="other">
-                            <button class="fb-login-btn" type="button">
-                                <i class="fa fa-facebook-official fb-icon"></i>
-                                <span class="">Log in with Facebook</span>
+                        <div className="other">
+                            <button className="fb-login-btn" type="button">
+                                <i className="fa fa-facebook-official fb-icon"></i>
+                                <span className="">Log in with Facebook</span>
                             </button>
-                            <a class="forgot-password" href="#">Forgot password?</a>
+                            <a className="forgot-password" href="#">Forgot password?</a>
                         </div>
                     </form>
                 </div>
-                <div class="box">
-                    <p>Don't have an account? <a class="signup" href="/signup">Sign Up</a></p>
+                <div className="box">
+                    <p>Don't have an account? <a className="signup" href="/signup">Sign Up</a></p>
                 </div>
         </div>
         )
