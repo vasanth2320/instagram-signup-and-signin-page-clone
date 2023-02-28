@@ -13,9 +13,9 @@ const NotFound = () => (
 );
 
 class App extends React.Component {
-  constructor() {
-    super();
-  };
+  // constructor() {
+  //   super();
+  // };
 
   render() {
     return (

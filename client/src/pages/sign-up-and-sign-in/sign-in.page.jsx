@@ -19,13 +19,13 @@ class SignIn extends React.Component {
       };
 
     handleSubmit = async (event) => {
-        // event.preventDefault();
+        event.preventDefault();
         
         await httpSignIn(this.state);
 
-        this.state = { username: '',
+        this.setState({ username: '',
                        password: ''
-                    };
+                    });
         }
 
     render() {
@@ -39,7 +39,8 @@ class SignIn extends React.Component {
                             <label>Username, or email</label>
                         </div>
                         <div className="field">
-                            password1<label>Password</label>
+                        <input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="off" />
+                            <label>Password</label>
                         </div>
                         <button className="login-button" title="login" type="submit">Log In</button>
                         <div className="separator">
@@ -52,7 +53,7 @@ class SignIn extends React.Component {
                                 <i className="fa fa-facebook-official fb-icon"></i>
                                 <span className="">Log in with Facebook</span>
                             </button>
-                            <a className="forgot-password" href="#">Forgot password?</a>
+                            <a className="forgot-password" href="/#">Forgot password?</a>
                         </div>
                     </form>
                 </div>

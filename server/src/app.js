@@ -68,6 +68,8 @@ app.post('/signin', async(req, res) => {
                     id: user._id, 
                     username: user.username 
                 }, JWT_SECRET)
+
+        console.log('user login...')
                 
         return res.json({ status: 'ok', data: token})
     }
@@ -79,11 +81,11 @@ app.post('/settings', async(req, res) => {
 
     console.log(req.body)
 
-    // const { token } = req.body;
-    // const user = jwt.verify(token, JWT_SECRET)
+    const { token } = req.body;
+    const user = jwt.verify(token, JWT_SECRET)
 
-    // console.log(user)
-    // res.json({ status: 'ok'})
+    console.log(user)
+    res.json({ status: 'ok'})
 })
 
 module.exports = app;

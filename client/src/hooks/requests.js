@@ -42,7 +42,7 @@ async function httpSettings(settingsDetails) {
             },
             body: JSON.stringify({
                 newPassword: settingsDetails.newPassword,
-                
+                token: localStorage.getItem('token')
             })
         });
     } catch (err){

@@ -28,16 +28,15 @@ class Settings extends React.Component {
                     };
         }
 
-
     render(){
         return(
             <div>
                 <h2>Change Password</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <input id="password" type="password" placeholder="New Password" name="newPassword" value={this.state.newPassword} onChange={this.handleChange} autoComplete="off"/>
+                    <input id="newPassword" type="password" placeholder="New Password" name="newPassword" value={this.state.newPassword} onChange={this.handleChange} autoComplete="off"/>
                     {/* <label>New password</label> */}
                         <br/>
-                    <input id="password" type="password" placeholder="Confirm Password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} autoComplete="off"/>
+                    <input id="confirmPassword" type="password" placeholder="Confirm Password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} autoComplete="off"/>
                     {/* <label>Confirm password</label> */}
                         <br/>
                     <button className="login-button" title="login" type="submit">Change Password</button>

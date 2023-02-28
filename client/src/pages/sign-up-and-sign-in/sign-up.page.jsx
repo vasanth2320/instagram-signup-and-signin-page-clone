@@ -25,11 +25,11 @@ class SignUp extends React.Component {
 
         await httpSignUp(this.state);
         
-        this.state = { emailAddress: '',
+        this.setState({ emailAddress: '',
                        fullName: '',
                        username: '',
                        password: ''
-                    };
+                    });
         }
 
   render() {
