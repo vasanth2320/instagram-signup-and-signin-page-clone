@@ -76,13 +76,14 @@ app.post('/signin', async(req, res) => {
 });
 
 app.post('/settings', async(req, res) => {
-    const { token } = req.body;
 
-    const user = jwt.verify(token, JWT_SECRET)
+    console.log(req.body)
 
-    console.log(user)
+    // const { token } = req.body;
+    // const user = jwt.verify(token, JWT_SECRET)
 
-    res.json({ status: 'ok'})
+    // console.log(user)
+    // res.json({ status: 'ok'})
 })
 
 module.exports = app;

@@ -40,7 +40,10 @@ async function httpSettings(settingsDetails) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(settingsDetails)
+            body: JSON.stringify({
+                newPassword: settingsDetails.newPassword,
+                
+            })
         });
     } catch (err){
         return {

@@ -39,8 +39,7 @@ class SignIn extends React.Component {
                             <label>Username, or email</label>
                         </div>
                         <div className="field">
-                            <input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="on"/>
-                            <label>Password</label>
+                            password1<label>Password</label>
                         </div>
                         <button className="login-button" title="login" type="submit">Log In</button>
                         <div className="separator">

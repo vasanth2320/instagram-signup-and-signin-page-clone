@@ -1,5 +1,5 @@
 import React from 'react';
-import './sign-up.styles.scss';
+import './sign-in.styles.scss';
 
 import { httpSignUp } from '../../hooks/requests';
 
@@ -52,7 +52,7 @@ class SignUp extends React.Component {
                           <label >Username</label>
                       </div>
                       <div className="field">
-                          <input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="on" />
+                          <input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="off" />
                           <label >Password</label>
                       </div>
                       <button className="login-button" title="signUp" type="submit">Sign Up</button>

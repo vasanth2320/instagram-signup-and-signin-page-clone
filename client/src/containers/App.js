@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Routes } from "react-router-dom";
 
 import './App.css';
-import SignIn from '../pages/sign-in/sign-in.page';
-import SignUp from '../pages/sign-up/sign-up.page';
+import SignIn from '../pages/sign-up-and-sign-in/sign-in.page';
+import SignUp from '../pages/sign-up-and-sign-in/sign-up.page';
 import Settings from '../pages/settings/settings.components';
 
 const NotFound = () => (
