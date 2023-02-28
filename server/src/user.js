@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
         requied: true
     }},
     {
-        collation: 'users'
+        collation: { locale: 'en_US', strength: 1 }
     }
 );
 

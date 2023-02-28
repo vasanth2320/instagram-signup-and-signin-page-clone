@@ -57,25 +57,32 @@ app.post('/signin', async(req, res) => {
     console.log(req.body);
 
     const { username, password } = req.body;
+    const user = await User.findOne({username})
 
-    const user = await User.findOne({username}).lean()
-    console.log(user);
-
-    if(!this.user) {
+    if(!user) {
         return res.json({ status: 'error', error: 'Invaild username/password'})
     }
 
     if(await bcrypt.compare(password, user.password)) {
-
         const token = jwt.sign({ 
                     id: user._id, 
                     username: user.username 
                 }, JWT_SECRET)
-
+                
         return res.json({ status: 'ok', data: token})
     }
 
     res.json({ status: 'error', error: 'Invalid username/password' });
 });
+
+app.post('/settings', async(req, res) => {
+    const { token } = req.body;
+
+    const user = jwt.verify(token, JWT_SECRET)
+
+    console.log(user)
+
+    res.json({ status: 'ok'})
+})
 
 module.exports = app;
