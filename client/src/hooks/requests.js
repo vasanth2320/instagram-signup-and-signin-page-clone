@@ -33,7 +33,24 @@ async function httpSignIn(signInDetails) {
     };
 }
 
+async function httpSettings(settingsDetails) {
+    try {
+        return await fetch(`${API_URL}/settings`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(settingsDetails)
+        });
+    } catch (err){
+        return {
+            ok: false
+        };
+    };
+}
+
 export {
     httpSignUp,
-    httpSignIn
+    httpSignIn,
+    httpSettings
 };

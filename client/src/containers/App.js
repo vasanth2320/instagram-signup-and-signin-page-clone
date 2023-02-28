@@ -2,8 +2,9 @@ import React from 'react';
 import { Route, Routes } from "react-router-dom";
 
 import './App.css';
-import SignIn from '../pages/sign-in/sign-in.component';
-import SignUp from '../pages/sign-up/sign-up.component';
+import SignIn from '../pages/sign-in/sign-in.page';
+import SignUp from '../pages/sign-up/sign-up.page';
+import Settings from '../pages/settings/settings.components';
 
 const NotFound = () => (
   <div>
@@ -12,9 +13,9 @@ const NotFound = () => (
 );
 
 class App extends React.Component {
-  // constructor() {
-  //   super();
-  // };
+  constructor() {
+    super();
+  };
 
   render() {
     return (
@@ -22,6 +23,7 @@ class App extends React.Component {
         <Routes>
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
