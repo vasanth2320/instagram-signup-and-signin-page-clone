@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:8000';
+const API_URL = 'http://localhost:5000';
+let Token = localStorage.getItem('token');
 
 // Sends sign up details of user to server
 async function httpSignUp(signUpDetails) {
@@ -25,7 +26,8 @@ async function httpSignIn(signInDetails) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(signInDetails)
-        });
+        }).then(res => res.json())
+          .then(object => localStorage.setItem('token',object.token))
     } catch (err){
         return {
             ok: false
@@ -42,7 +44,7 @@ async function httpSettings(settingsDetails) {
             },
             body: JSON.stringify({
                 newPassword: settingsDetails.newPassword,
-                token: localStorage.getItem('token')
+                token: localStorage.getItem('token') 
             })
         });
     } catch (err){

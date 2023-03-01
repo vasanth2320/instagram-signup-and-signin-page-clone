@@ -71,7 +71,7 @@ app.post('/signin', async(req, res) => {
 
         console.log('user login...')
                 
-        return res.json({ status: 'ok', data: token})
+        return res.json({ status: 'ok', token: token})
     }
 
     res.json({ status: 'error', error: 'Invalid username/password' });
@@ -82,9 +82,9 @@ app.post('/settings', async(req, res) => {
     console.log(req.body)
 
     const { token } = req.body;
-    const user = jwt.verify(token, JWT_SECRET)
+    // const user = jwt.verify(token, JWT_SECRET)
 
-    console.log(user)
+    console.log(token)
     res.json({ status: 'ok'})
 })
 

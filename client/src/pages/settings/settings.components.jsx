@@ -19,7 +19,7 @@ class Settings extends React.Component {
       };
 
     handleSubmit = async (event) => {
-        // event.preventDefault();
+        event.preventDefault();
         
         await httpSettings(this.state);
 
