@@ -28,6 +28,17 @@ app.post('/signup', async (req, res) => {
         });
     }
 
+    // if(!plainTextPassword || typeof plainTextPassword !== 'string') {
+    //     return res.json({ status: 'error', error: 'Invalid password'})
+    // }
+
+    // if (plainTextPassword.length < 5){
+    //     return res.json({
+    //         status: 'error',
+    //         error: 'Password too small. Should be atleast 6 characters'
+    //     })
+    // }
+
     console.log(emailAddress,
                 fullName,
                 username,
@@ -59,7 +70,10 @@ app.post('/signin', async(req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({username})
 
+    // console.log('1')
+
     if(!user) {
+        console.log('Invaild username/password');
         return res.json({ status: 'error', error: 'Invaild username/password'})
     }
 
@@ -70,6 +84,7 @@ app.post('/signin', async(req, res) => {
                 }, JWT_SECRET)
 
         console.log('user login...')
+        console.log(token)
                 
         return res.json({ status: 'ok', token: token})
     }
@@ -78,13 +93,27 @@ app.post('/signin', async(req, res) => {
 });
 
 app.post('/settings', async(req, res) => {
-
-    console.log(req.body)
-
-    const { token } = req.body;
-    // const user = jwt.verify(token, JWT_SECRET)
-
+    const { token, newPassword } = req.body;
     console.log(token)
+    try{
+        const user = jwt.verify(token, JWT_SECRET)
+        const _id = user.id
+
+        const hashedPassword = await bcrypt.hash(newPassword, 10)
+
+        await User.updateOne(
+            { _id },
+            {
+                $set: { password: hashedPassword }
+            }
+        )
+
+        console.log('JWT decoded:', user)
+        console.log(hashedPassword);
+    } catch {
+        res.json({status: 'error', error: 'error occured while verification...'})
+    }
+
     res.json({ status: 'ok'})
 })
 

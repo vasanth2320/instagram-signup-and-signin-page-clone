@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const PASSWORD = 'tTJMDBdjOVHEB6m2';
-const MONGO_URL = `mongodb+srv://Instagram-0987:${PASSWORD}@instagram-clone-mern.efkrv5m.mongodb.net/?retryWrites=true&w=majority`;
+const MONGO_URL = `mongodb+srv://Instagram-0987:${PASSWORD}@instagram-clone-mern.efkrv5m.mongodb.net/Users?retryWrites=true&w=majority`;
 
 mongoose.set("strictQuery", false);
 
