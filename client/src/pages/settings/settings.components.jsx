@@ -1,5 +1,5 @@
 import React from 'react';
-import './settings.styles.scss';
+import { Container, Header } from './settings.styles.jsx';
 
 import { httpSettings } from '../../hooks/requests';
 
@@ -23,15 +23,15 @@ class Settings extends React.Component {
         
         await httpSettings(this.state);
 
-        this.state = { newPassword: '',
+        this.setState({ newPassword: '',
                        confirmPassword: ''
-                    };
+                    });
         }
 
     render(){
         return(
-            <div>
-                <h2>Change Password</h2>
+            <Container>
+                <Header>Change Password</Header>
                 <form onSubmit={this.handleSubmit}>
                     <input id="newPassword" type="password" placeholder="New Password" name="newPassword" value={this.state.newPassword} onChange={this.handleChange} autoComplete="off"/>
                     {/* <label>New password</label> */}
@@ -41,7 +41,7 @@ class Settings extends React.Component {
                         <br/>
                     <button className="login-button" title="login" type="submit">Change Password</button>
                 </form>
-            </div>
+            </Container>
         )
     }
 }

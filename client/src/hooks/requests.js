@@ -1,5 +1,4 @@
 const API_URL = 'http://localhost:5000';
-let Token = localStorage.getItem('token');
 
 // Sends sign up details of user to server
 async function httpSignUp(signUpDetails) {

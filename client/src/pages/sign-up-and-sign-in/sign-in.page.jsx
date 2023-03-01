@@ -1,5 +1,5 @@
 import React from 'react';
-import './sign-in.styles.scss';
+import { Container, Box, Logo, Field, Input, Label, LoginButton, Separator, Line, Other, LoginForm, FbLoginBtn, FbIcon, ForgotPassword, Signup } from './sign-up-and-sign-in.styles';
 
 import { httpSignIn } from '../../hooks/requests';
 
@@ -30,37 +30,37 @@ class SignIn extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="box">
-                    <div className="heading"></div>
-                    <form className="login-form" onSubmit={this.handleSubmit}>
-                        <div className="field">
-                            <input id="username" type="name" placeholder="username, or email" name="username" value={this.state.username} onChange={this.handleChange}/>
-                            <label>Username, or email</label>
-                        </div>
-                        <div className="field">
-                        <input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="off" />
-                            <label>Password</label>
-                        </div>
-                        <button className="login-button" title="login" type="submit">Log In</button>
-                        <div className="separator">
-                            <div className="line"></div>
+            <Container>
+                <Box>
+                    <Logo></Logo>
+                    <LoginForm onSubmit={this.handleSubmit}>
+                        <Field>
+                            <Input id="username" type="name" placeholder="username, or email" name="username" value={this.state.username} onChange={this.handleChange}/>
+                            <Label>Username, or email</Label>
+                        </Field>
+                        <Field>
+                            <Input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="off" />
+                            <Label>Password</Label>
+                        </Field>
+                        <LoginButton title="login" type="submit">Log In</LoginButton>
+                        <Separator>
+                            <Line></Line>
                             <p>OR</p>
-                            <div className="line"></div>
-                        </div>
-                        <div className="other">
-                            <button className="fb-login-btn" type="button">
-                                <i className="fa fa-facebook-official fb-icon"></i>
+                            <Line></Line>
+                        </Separator>
+                        <Other>
+                            <FbLoginBtn type="button">
+                                <FbIcon></FbIcon>
                                 <span className="">Log in with Facebook</span>
-                            </button>
-                            <a className="forgot-password" href="/#">Forgot password?</a>
-                        </div>
-                    </form>
-                </div>
-                <div className="box">
-                    <p>Don't have an account? <a className="signup" href="/signup">Sign Up</a></p>
-                </div>
-        </div>
+                            </FbLoginBtn>
+                            <ForgotPassword href="/#">Forgot password?</ForgotPassword>
+                        </Other>
+                    </LoginForm>
+                </Box>
+                <Box>
+                    <p>Don't have an account? <Signup href="/signup">Sign Up</Signup></p>
+                </Box>
+        </Container>
         )
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './sign-in.styles.scss';
+import { Container, Box, Logo, Field, Input, Label, LoginButton, Separator, Line, Other, FbLoginBtn, FbIcon, Heading, LoginForm } from './sign-up-and-sign-in.styles';
 
 import { httpSignUp } from '../../hooks/requests';
 
@@ -34,42 +34,42 @@ class SignUp extends React.Component {
 
   render() {
       return (
-          <div className="container">
-              <div className="box">
-                  <div className="heading"></div>
-                  <h2>Sign up to see photos and videos from your friends.</h2>
-                  <form className="login-form" onSubmit={this.handleSubmit}>
-                      <div className="field">
-                          <input id="emailAddress" type="email" placeholder="Email address" name='emailAddress'  value={this.state.emailAddress} onChange={this.handleChange}/>
-                          <label>Email address</label>
-                      </div>
-                      <div className="field">
-                          <input id="full name" type="text" placeholder="full name" name='fullName' value={this.state.fullName}  onChange={this.handleChange} />
-                          <label >Full Name</label>
-                      </div>
-                      <div className="field">
-                          <input id="username" type="text" placeholder="username" name="username" value={this.state.username} onChange={this.handleChange}/>
-                          <label >Username</label>
-                      </div>
-                      <div className="field">
-                          <input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="off" />
-                          <label >Password</label>
-                      </div>
-                      <button className="login-button" title="signUp" type="submit">Sign Up</button>
-                      <div className="separator">
-                          <div className="line"></div>
+          <Container>
+              <Box>
+                <Logo></Logo>
+                  <Heading>Sign up to see photos and videos from your friends.</Heading>
+                  <LoginForm onSubmit={this.handleSubmit}>
+                      <Field>
+                          <Input id="emailAddress" type="email" placeholder="Email address" name='emailAddress'  value={this.state.emailAddress} onChange={this.handleChange}/>
+                          <Label>Email address</Label>
+                      </Field>
+                      <Field>
+                          <Input id="full name" type="text" placeholder="full name" name='fullName' value={this.state.fullName}  onChange={this.handleChange} />
+                          <Label >Full Name</Label>
+                      </Field>
+                      <Field>
+                          <Input id="username" type="text" placeholder="username" name="username" value={this.state.username} onChange={this.handleChange}/>
+                          <Label >Username</Label>
+                      </Field>
+                      <Field>
+                          <Input id="password" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} autoComplete="off" />
+                          <Label >Password</Label>
+                      </Field>
+                      <LoginButton title="signUp" type="submit">Sign Up</LoginButton>
+                      <Separator>
+                          <Line></Line>
                           <p>OR</p>
-                          <div className="line"></div>
-                      </div>
-                      <div className="other">
-                          <button className="fb-login-btn" type="button">
-                              <i className="fa fa-facebook-official fb-icon"></i>
+                          <Line></Line>
+                      </Separator>
+                      <Other>
+                          <FbLoginBtn type="button">
+                              <FbIcon></FbIcon>
                               <span className="">Log in with Facebook</span>
-                          </button>
-                      </div>
-                  </form>
-              </div>
-      </div>
+                          </FbLoginBtn>
+                      </Other>
+                  </LoginForm>
+              </Box>
+        </Container>
       )
   }
 }
