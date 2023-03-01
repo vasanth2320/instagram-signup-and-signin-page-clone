@@ -7,26 +7,28 @@ class SignIn extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { username: '',
-                       password: ''
-                    };
+        this.state = {
+            username: '',
+            password: ''
+        };
     };
 
     handleChange = event => {
         const { name, value } = event.target;
 
         this.setState({ [name]: value });
-      };
+    };
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        
+
         await httpSignIn(this.state);
 
-        this.setState({ username: '',
-                       password: ''
-                    });
-        }
+        this.setState({
+            username: '',
+            password: ''
+        });
+    }
 
     render() {
         return (
@@ -35,7 +37,7 @@ class SignIn extends React.Component {
                     <Logo></Logo>
                     <LoginForm onSubmit={this.handleSubmit}>
                         <Field>
-                            <Input id="username" type="name" placeholder="username, or email" name="username" value={this.state.username} onChange={this.handleChange}/>
+                            <Input id="username" type="name" placeholder="username, or email" name="username" value={this.state.username} onChange={this.handleChange} />
                             <Label>Username, or email</Label>
                         </Field>
                         <Field>
@@ -60,7 +62,7 @@ class SignIn extends React.Component {
                 <Box>
                     <p>Don't have an account? <Signup href="/signup">Sign Up</Signup></p>
                 </Box>
-        </Container>
+            </Container>
         )
     }
 }

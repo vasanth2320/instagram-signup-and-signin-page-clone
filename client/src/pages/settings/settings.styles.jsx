@@ -11,14 +11,32 @@ export const Container = styled.div`
     font-size: 14px;
 `;
 
-export const Header = styled.h2`
+export const Heading = styled.h2`
     margin-top: 10px;
     width: 280px;
-    color: black;
+    color: #000000;
     font-size: 17px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 20px;
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;;
 `;
 
+export const Box = styled.div`
+    max-width: 350px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+    flex-grow: 1;
+`;
+
+export const Input = styled.input`
+    margin: 5px;
+`;
